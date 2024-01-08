@@ -1,0 +1,57 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Kullanıcıdan iki sayıyı al
+        Console.Write("Birinci sayıyı girin: ");
+        int sayi1 = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("İkinci sayıyı girin: ");
+        int sayi2 = Convert.ToInt32(Console.ReadLine());
+
+        // Kullanıcıdan tek veya çift sayılar arasında mı işlem yapılacağını sor
+        Console.Write("Tek sayılar mı, çift sayılar mı yoksa her ikisi mi arasında işlem yapmak istersiniz? (tek/çift/herikisi): ");
+        string secim = Console.ReadLine().ToLower();
+
+        
+        int toplam = 0;
+
+        if (secim == "tek")
+        {
+            for (int i = Math.Min(sayi1, sayi2); i <= Math.Max(sayi1, sayi2); i++)
+            {
+                if (i % 2 != 0)
+                {
+                    toplam += i;
+                }
+            }
+        }
+        else if (secim == "çift")
+        {
+            for (int i = Math.Min(sayi1, sayi2); i <= Math.Max(sayi1, sayi2); i++)
+            {
+                if (i % 2 == 0)
+                {
+                    toplam += i;
+                }
+            }
+        }
+        else if (secim == "herikisi")
+        {
+            for (int i = Math.Min(sayi1, sayi2); i <= Math.Max(sayi1, sayi2); i++)
+            {
+                toplam += i;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Geçersiz seçim. Lütfen 'tek', 'çift' veya 'herikisi' olarak girin.");
+            return;
+        }
+
+        Console.WriteLine($"Sonuç: {toplam}");
+    }
+}
+
