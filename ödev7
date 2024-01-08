@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+
+namespace Ornek211
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            string[] A = { "Emin", "Emir", "İclal", "Bekir", "Cem", "Arda", "Kaan", "Metin", "Can", "Ramiz" };
+            int[] B = { 56, 78, 95, 23, 95, 87, 61, 77, 45, 33 };
+
+            int enBuyuk = -1500;
+            int enDusuk = 1500;
+            List<string> enBuyukIsimler = new List<string>();
+            List<string> enDusukIsimler = new List<string>();
+
+            for (int c = 0; c < B.Length; c++)
+            {
+                if (B[c] > enBuyuk)
+                {
+                    enBuyuk = B[c];
+                    enBuyukIsimler.Clear();
+                    enBuyukIsimler.Add(A[c]);
+                }
+                else if (B[c] == enBuyuk)
+                {
+                    enBuyukIsimler.Add(A[c]);
+                }
+
+                if (B[c] < enDusuk)
+                {
+                    enDusuk = B[c];
+                    enDusukIsimler.Clear();
+                    enDusukIsimler.Add(A[c]);
+                }
+                else if (B[c] == enDusuk)
+                {
+                    enDusukIsimler.Add(A[c]);
+                }
+            }
+
+            Console.WriteLine("En Yüksek Notu Alan Kişi(ler): " + string.Join(", ", enBuyukIsimler));
+            Console.WriteLine("En Düşük Notu Alan Kişi(ler): " + string.Join(", ", enDusukIsimler));
+
+            Console.Write("Devam etmek için bir tuşa basınız. . . ");
+            Console.ReadKey(true);
+        }
+    }
+}
