@@ -1,0 +1,29 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("İkili (Binary) Sayıyı Girin: ");
+        string ikiliSayiStr = Console.ReadLine();
+
+        // Girilen ikili sayıyı ters çevirme
+        char[] ikiliDizi = ikiliSayiStr.ToCharArray();
+        Array.Reverse(ikiliDizi);
+        string tersIkiliSayiStr = new string(ikiliDizi);
+
+        int onluDeger = 0;
+        int tabanDeger = 1;
+
+        // Ters çevrilen ikili sayıyı onlu sayıya çevirme
+        for (int i = 0; i < tersIkiliSayiStr.Length; i++)
+        {
+            int basamakDeger = tersIkiliSayiStr[i] - '0';
+            onluDeger += basamakDeger * tabanDeger;
+            tabanDeger *= 2;
+        }
+
+        Console.WriteLine("İkili (Binary) Sayı: " + ikiliSayiStr);
+        Console.WriteLine("Onlu (Decimal) Sayı: " + onluDeger);
+    }
+}
