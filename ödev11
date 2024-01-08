@@ -1,0 +1,41 @@
+using System;
+
+namespace Ornek220
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.Write("Dizi Boyutunu Giriniz: ");
+            if (int.TryParse(Console.ReadLine(), out int diziBoyutu) && diziBoyutu > 1)
+            {
+                int[] B = new int[diziBoyutu];
+
+                for (int i = 0; i < diziBoyutu; i++)
+                {
+                    Console.Write($"{i + 1}. Sayıyı Giriniz: ");
+                    while (!int.TryParse(Console.ReadLine(), out B[i]))
+                    {
+                        Console.Write("Geçerli bir sayı giriniz: ");
+                    }
+                }
+
+                int e = 1;
+                for (int a = 2; a < B.Length; a++)
+                {
+                    if (Math.Abs(B[0] - B[a]) < Math.Abs(B[0] - B[e]))
+                        e = a;
+                }
+
+                Console.WriteLine("İlk Sayıya En Yakın Sayı = " + B[e]);
+            }
+            else
+            {
+                Console.WriteLine("Geçerli bir dizi boyutu giriniz (en az 2).");
+            }
+
+            Console.Write("Press any key to continue . . . ");
+            Console.ReadKey(true);
+        }
+    }
+}
