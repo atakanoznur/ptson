@@ -1,0 +1,28 @@
+using System;
+
+namespace Ornek096
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double[] a = { 150, 600, 700, 450, 850, 275, 950, 1500, 210, 368 };
+
+            for (int b = 0; b < a.Length; b++)
+            {
+                double bursMiktari = a[b]; 
+
+                if (bursMiktari < 500)
+                {
+                    bursMiktari = (bursMiktari * 0.1) + bursMiktari + 50;
+                }
+
+                Console.WriteLine(bursMiktari);
+            }
+
+            Console.Write("Devam etmek için bir tuşa basınız. . . ");
+            Console.ReadKey(true);
+        }
+    }
+}
+
